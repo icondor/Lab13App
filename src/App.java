@@ -8,9 +8,10 @@ public class App {
              // cere user si parola
              // daca userul si parola sunt in db mergi mai departe altfel repeta
 
-        LoginUsingTextFIles login = new LoginUsingTextFIles();
-        login.tryLogin();
-
+//        LoginUsingTextFIles login = new LoginUsingTextFIles();
+//        login.tryLogin();
+        NewsReport nr = new NewsReport();
+        nr.readNews("stiri.txt");
 
 
         // modul de citit stiri si parsare si generare raport si mail
@@ -22,7 +23,7 @@ public class App {
                   //trimite mail   --- nu am mai facut
 
 
-        
+
 
 
 
