@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Properties;
 
-public class SendMail {
+public class SendMail implements Runnable{
 
     public String getFileName() {
         return fileName;
@@ -34,9 +34,10 @@ public class SendMail {
     private String fileName;
     private String toEmail;
 
+    @Override
+    public void run() {
 
-    public void sendEmail() {
-        System.out.println("start email");
+     //   System.out.println(" din thread start email");
 
         final String username = "fasttrackit.intro@gmail.com";
         final String password = "fasttrackit.intro1";
@@ -88,12 +89,18 @@ public class SendMail {
             Transport.send(message);
 
 
-            System.out.println("stop email");
+        //    System.out.println(" din thread stop email");
 
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void sendEmail() {
+        Thread t = new Thread(this);
+        t.start();
     }
 
 }

@@ -10,10 +10,9 @@ public class NewsReport {
 
     public void readNews(String pathFileNews) {
 
-        Path p = Paths.get(pathFileNews);
-        String fileNameReport="raport"+System.currentTimeMillis()+".txt";
-        Path pout = Paths.get(fileNameReport);
+
         String newsWholeContent="";
+        Path p = Paths.get(pathFileNews);
         try {
             newsWholeContent = new String(Files.readAllBytes(p));
         } catch (IOException e) {
@@ -33,6 +32,9 @@ public class NewsReport {
             Map<String, Integer> resultMap = processCurrentNews(currentNews);
 
             String fileContent="";
+
+            String fileNameReport="raport"+System.currentTimeMillis()+".txt";
+            Path pout = Paths.get(fileNameReport);
             for (Map.Entry<String,Integer> entry : resultMap.entrySet()) {
                 System.out.println(entry.getKey() +
                         ":" + entry.getValue());
@@ -43,14 +45,14 @@ public class NewsReport {
                 byte[] strToBytes = fileContent.getBytes();
 
                 try {
-                    Files.write(pout, strToBytes, StandardOpenOption.CREATE);
+                    Files.write(pout, strToBytes);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
 
                 SendMail sm = new SendMail();
-                sm.setToEmail("ionel.condor@gmail.com");
+                sm.setToEmail("ionel.condor@fasttrackit.org");
                 sm.setFileName(fileNameReport);
                 sm.sendEmail(); // sincron , blocant
 

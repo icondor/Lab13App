@@ -11,7 +11,7 @@ public class LoginUsingTextFIles {
 
     List<User> dbusers = null;
 
-    private User readFromKb() {
+    public static User readFromKb() {
 
         System.out.print("U:");
         String user = new Scanner(System.in).nextLine();
