@@ -21,7 +21,7 @@ public class LoginUsingDB {
         // 1. ma conectez la db
         final String URL = "jdbc:postgresql://idc.cluster-custom-cjcsijnttbb2.eu-central-1.rds.amazonaws.com:5432/ionelcondor";
         final String USERNAME = "ftuser";
-        final String PASSWORD = "password1";
+        final String PASSWORD = "";
         try {
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
